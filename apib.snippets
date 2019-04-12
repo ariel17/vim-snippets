@@ -1,4 +1,41 @@
-snippet ah "APIB header generator"
+snippet ah "APIB header generator" b
 FORMAT: 1A
 HOST: ${1:http://localhost:8080}
+endsnippet
+
+snippet ads "APIB data structure declaration"
+## ${1:DataStructureName}(${2:object})
++ ${3:field_name}: ${4:value} (${5:type}, ${6:required}) -${7:Field description.}
+endsnippet
+
+snippet ag "APIB group definition"
+# Group ${1:Name of the group}
+
+## ${2:Meaning for this logical group} [${3:/path/to/{id}{?param1,param2}}]
+TODO description
+
+### ${4:Name of the action} [${5:GET}]
+TODO description
+
+- Parameters
+  - id: abc123 (string) - URL path value definition.
+  - param1: 1234567890 (number) - Field definition.
+  - param2: abc (string,required) - Field definition.
+
+- Response ${6:200} (application/json)
+
+        {
+		  "a": 1,
+		  "b": 2
+        }
+endsnippet
+
+snippet ar "APIB request example"
++ Request (application/json)
+
+    + Headers
+
+            ${1:X-Header-Name}: ${2:value}
+
+    + Attributes (${3:DataStructureName})
 endsnippet
